@@ -15,6 +15,7 @@
 		330D1745263FC7FB00391ACA /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */; };
 		330D1747263FD0BA00391ACA /* CurrentExchangeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1746263FD0BA00391ACA /* CurrentExchangeClass.swift */; };
 		330D1749263FEEEB00391ACA /* RateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1748263FEEEB00391ACA /* RateClass.swift */; };
+		330D174B263FFE8200391ACA /* RateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D174A263FFE8200391ACA /* RateTableViewCell.swift */; };
 		33519485263DB2C9004BBC7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33519484263DB2C9004BBC7C /* AppDelegate.swift */; };
 		33519487263DB2C9004BBC7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33519486263DB2C9004BBC7C /* ViewController.swift */; };
 		3351948A263DB2C9004BBC7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33519488263DB2C9004BBC7C /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		330D1746263FD0BA00391ACA /* CurrentExchangeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExchangeClass.swift; sourceTree = "<group>"; };
 		330D1748263FEEEB00391ACA /* RateClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateClass.swift; sourceTree = "<group>"; };
+		330D174A263FFE8200391ACA /* RateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateTableViewCell.swift; sourceTree = "<group>"; };
 		33519481263DB2C9004BBC7C /* ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33519484263DB2C9004BBC7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33519486263DB2C9004BBC7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				33519486263DB2C9004BBC7C /* ViewController.swift */,
 				330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */,
+				330D174A263FFE8200391ACA /* RateTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				330D1747263FD0BA00391ACA /* CurrentExchangeClass.swift in Sources */,
 				33519487263DB2C9004BBC7C /* ViewController.swift in Sources */,
 				330D1743263FBFDA00391ACA /* AppCoordinator.swift in Sources */,
+				330D174B263FFE8200391ACA /* RateTableViewCell.swift in Sources */,
 				3351948D263DB2C9004BBC7C /* ios_challenge.xcdatamodeld in Sources */,
 				33519485263DB2C9004BBC7C /* AppDelegate.swift in Sources */,
 				330D173D263DC3A700391ACA /* CurrencyExchange.swift in Sources */,

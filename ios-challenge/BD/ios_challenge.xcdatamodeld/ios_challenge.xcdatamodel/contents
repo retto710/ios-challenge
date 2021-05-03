@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G14033" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChangeRate" representedClassName="ChangeRate" syncable="YES" codeGenerationType="class">
+        <attribute name="buy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="newCurrency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousCurrency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sell" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="CurrencyExchange" representedClassName="CurrencyExchange" syncable="YES" codeGenerationType="class">
         <attribute name="base" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="rates" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="rates" optional="YES" attributeType="Transformable" customClassName="[RateClass]" syncable="YES"/>
     </entity>
     <entity name="CurrExchange" representedClassName="CurrExchange" syncable="YES" codeGenerationType="class">
         <attribute name="baseCurrencyName" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,14 +21,16 @@
         <attribute name="sell" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Rate" representedClassName="Rate" syncable="YES" codeGenerationType="class">
-        <attribute name="buy" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="baseCurrencyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="currencyName" attributeType="String" syncable="YES"/>
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="sell" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Rate" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Rate" positionX="-63" positionY="-18" width="128" height="30"/>
         <element name="CurrencyExchange" positionX="-54" positionY="9" width="128" height="105"/>
         <element name="CurrExchange" positionX="-36" positionY="45" width="128" height="135"/>
+        <element name="ChangeRate" positionX="-18" positionY="90" width="128" height="105"/>
     </elements>
 </model>

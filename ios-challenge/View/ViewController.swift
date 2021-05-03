@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
     
     var currentExchan: CurrentExchangeClass = CurrentExchangeClass()
     var currentTransaction: Int = 0
+    var currencyNameToChange: String = ""
+    var haschanged: Bool  = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,8 +43,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
         //tap
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(gesture)
-        let gesturePress = UILongPressGestureRecognizer(target: self, action:  #selector(self.goToListView))
-        let gesturePress2 = UILongPressGestureRecognizer(target: self, action:  #selector(self.goToListView))
+        let gesturePress = UILongPressGestureRecognizer(target: self, action:  #selector(self.goToListViewRecieve))
+        let gesturePress2 = UILongPressGestureRecognizer(target: self, action:  #selector(self.goToListViewSent))
         gesturePress.minimumPressDuration = 3.0 // 1 second press
         gesturePress.delaysTouchesBegan = true
         gesturePress.delegate = self
@@ -56,10 +58,42 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
         txtFieldRecieveAmount.delegate = self
         getActualExchange()
         //
+        checkChange()
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        checkChange()
+    }
     
+    func checkChange(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ChangeRate")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                if(data.value(forKey: "previousCurrency") as! String == currentExchan.baseCurrencyName){
+                    currentExchan.baseCurrencyName = data.value(forKey: "newCurrency") as! String
+                    currentExchan.sell = currentExchan.sell/(data.value(forKey: "sell") as! Double)
+                    currentExchan.buy = currentExchan.buy/(data.value(forKey: "buy") as! Double)
+                }
+                else {
+                        currentExchan.baseCurrencyName = data.value(forKey: "newCurrency") as! String
+                        currentExchan.destinationSell = currentExchan.sell/(data.value(forKey: "sell") as! Double)
+                        currentExchan.destinationBuy = currentExchan.buy/(data.value(forKey: "buy") as! Double)
+                }
+               context.delete(data)
+            }
+            setExchangeValues()
+            
+        } catch {
+            
+            print("Failed")
+        }
+    }
     func setExchangeValues(){
         //set values
         lblRecieveCurrency.text = currentExchan.baseCurrencyName
@@ -114,11 +148,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
         topConstraint.constant = 20
     }
 
-    @objc func goToListView(sender : UITapGestureRecognizer) {
+    @objc func goToListViewSent(sender : UITapGestureRecognizer) {
         if sender.state != UIGestureRecognizer.State.began {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let listViewController = storyBoard.instantiateViewController(withIdentifier: "CurrencyListViewController") as! CurrencyListViewController
-
+            listViewController.baseCUrrencyName = currentExchan.destinationCurrencyName
+            self.navigationController?.pushViewController(listViewController, animated: true)
+        }
+        else {
+        }
+        
+    }
+    
+    @objc func goToListViewRecieve(sender : UITapGestureRecognizer) {
+        if sender.state != UIGestureRecognizer.State.began {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let listViewController = storyBoard.instantiateViewController(withIdentifier: "CurrencyListViewController") as! CurrencyListViewController
+            listViewController.baseCUrrencyName = currentExchan.baseCurrencyName
             self.navigationController?.pushViewController(listViewController, animated: true)
         }
         else {
@@ -185,8 +231,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrExchange")
         request.returnsObjectsAsFaults = false
-        
-        if currentExchan.baseCurrencyName = "" {
+        if currentExchan.baseCurrencyName == "" {
             loadFirstExchange()
         }
         do {
@@ -196,7 +241,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizer
             }
             for data in result as! [NSManagedObject] {
                 currentExchan = CurrentExchangeClass(_sell: data.value(forKey: "sell") as! Double, _buy: data.value(forKey: "buy") as! Double, _baseCurrencyName: data.value(forKey: "baseCurrencyName") as! String, _destinationCurrencyName: data.value(forKey: "destinationCurrencyName") as! String, _destinationSell: data.value(forKey: "destinationSell") as! Double, _destinationBuy: data.value(forKey: "destinationBuy") as! Double)
-                print(currentExchan)
             }
             setExchangeValues()
             
