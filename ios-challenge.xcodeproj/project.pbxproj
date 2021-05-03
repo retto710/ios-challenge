@@ -11,6 +11,10 @@
 		330D1739263DC1BA00391ACA /* CurrencyExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1738263DC1BA00391ACA /* CurrencyExchangeViewModel.swift */; };
 		330D173D263DC3A700391ACA /* CurrencyExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D173C263DC3A700391ACA /* CurrencyExchange.swift */; };
 		330D173F263DC67600391ACA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D173E263DC67600391ACA /* DataManager.swift */; };
+		330D1743263FBFDA00391ACA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1742263FBFDA00391ACA /* AppCoordinator.swift */; };
+		330D1745263FC7FB00391ACA /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */; };
+		330D1747263FD0BA00391ACA /* CurrentExchangeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1746263FD0BA00391ACA /* CurrentExchangeClass.swift */; };
+		330D1749263FEEEB00391ACA /* RateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D1748263FEEEB00391ACA /* RateClass.swift */; };
 		33519485263DB2C9004BBC7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33519484263DB2C9004BBC7C /* AppDelegate.swift */; };
 		33519487263DB2C9004BBC7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33519486263DB2C9004BBC7C /* ViewController.swift */; };
 		3351948A263DB2C9004BBC7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33519488263DB2C9004BBC7C /* Main.storyboard */; };
@@ -46,6 +50,10 @@
 		330D1738263DC1BA00391ACA /* CurrencyExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeViewModel.swift; sourceTree = "<group>"; };
 		330D173C263DC3A700391ACA /* CurrencyExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchange.swift; sourceTree = "<group>"; };
 		330D173E263DC67600391ACA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		330D1742263FBFDA00391ACA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
+		330D1746263FD0BA00391ACA /* CurrentExchangeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExchangeClass.swift; sourceTree = "<group>"; };
+		330D1748263FEEEB00391ACA /* RateClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateClass.swift; sourceTree = "<group>"; };
 		33519481263DB2C9004BBC7C /* ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33519484263DB2C9004BBC7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33519486263DB2C9004BBC7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				33519486263DB2C9004BBC7C /* ViewController.swift */,
+				330D1744263FC7FB00391ACA /* CurrencyListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				330D173C263DC3A700391ACA /* CurrencyExchange.swift */,
+				330D1746263FD0BA00391ACA /* CurrentExchangeClass.swift */,
+				330D1748263FEEEB00391ACA /* RateClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				330D1732263DC0B200391ACA /* View */,
 				33519484263DB2C9004BBC7C /* AppDelegate.swift */,
 				33519493263DB2CA004BBC7C /* Info.plist */,
+				330D1742263FBFDA00391ACA /* AppCoordinator.swift */,
 			);
 			path = "ios-challenge";
 			sourceTree = "<group>";
@@ -466,7 +478,11 @@
 			files = (
 				330D1739263DC1BA00391ACA /* CurrencyExchangeViewModel.swift in Sources */,
 				330D173F263DC67600391ACA /* DataManager.swift in Sources */,
+				330D1745263FC7FB00391ACA /* CurrencyListViewController.swift in Sources */,
+				330D1749263FEEEB00391ACA /* RateClass.swift in Sources */,
+				330D1747263FD0BA00391ACA /* CurrentExchangeClass.swift in Sources */,
 				33519487263DB2C9004BBC7C /* ViewController.swift in Sources */,
+				330D1743263FBFDA00391ACA /* AppCoordinator.swift in Sources */,
 				3351948D263DB2C9004BBC7C /* ios_challenge.xcdatamodeld in Sources */,
 				33519485263DB2C9004BBC7C /* AppDelegate.swift in Sources */,
 				330D173D263DC3A700391ACA /* CurrencyExchange.swift in Sources */,
